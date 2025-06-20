@@ -23,7 +23,8 @@ else
 
 //ejercicio 2 (al ejercicio 5 hacerlo en un proyecto separado)
 int opcion=0;
-do {
+do
+{
     Console.WriteLine("Ingrese una opcion");
     Console.WriteLine("1. Suma");
     Console.WriteLine("2. Resta");
@@ -52,7 +53,8 @@ do {
                 Console.WriteLine("Ingrese los dos numeros a dividir");
                 float dividendo = Calculadora.PedirNumero();
                 float divisor;
-                do {
+                do
+                {
                     divisor = Calculadora.PedirNumero();
                     if (!(divisor == 0))
                     {
@@ -72,4 +74,14 @@ do {
                 break;
         }
     }
-}while(opcion == 0);
+
+    if (opcion != 5)
+    {
+        Console.WriteLine("Quiere realizar otra operacion?");
+        Console.WriteLine("1. SI");
+        Console.WriteLine("0. NO");
+        string otra = Console.ReadLine();
+        int.TryParse(otra, out opcion);
+    }
+    
+} while (opcion != 0);
