@@ -16,6 +16,7 @@ public static class Calculadora
     }
     public static void MostrarResultado(float numero)
     {
+        Console.Write("Resultado: ");
         Console.WriteLine(numero);
     }
     public static void ValorAbsoluto(float numero)
@@ -42,6 +43,14 @@ public static class Calculadora
     }
     public static void ParteEntera(float numero)
     {
-        MostrarResultado(float.Round(numero,0));
+        MostrarResultado(float.Round(numero, 0));
+    }
+    public static void Maximo(float numero1, float numero2)
+    {
+        MostrarResultado(float.Max(numero1, numero2));
+    }
+    public static void Minimo(float numero1, float numero2)
+    {
+        MostrarResultado(float.Min(numero1, numero2));
     }
 }
