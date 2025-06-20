@@ -37,15 +37,19 @@ do {
         switch (opcion)
         {
             case 1:
+                Console.WriteLine("Ingrese los dos numeros a sumar");
                 Calculadora.MostrarResultado(Calculadora.Suma(Calculadora.PedirNumero(), Calculadora.PedirNumero()));
                 break;
             case 2:
+                Console.WriteLine("Ingrese los dos numeros a restar");
                 Calculadora.MostrarResultado(Calculadora.Resta(Calculadora.PedirNumero(), Calculadora.PedirNumero()));
                 break;
             case 3:
+                Console.WriteLine("Ingrese los dos numeros a multiplicar");
                 Calculadora.MostrarResultado(Calculadora.Multiplicacion(Calculadora.PedirNumero(), Calculadora.PedirNumero()));
                 break;
             case 4:
+                Console.WriteLine("Ingrese los dos numeros a dividir");
                 float dividendo = Calculadora.PedirNumero();
                 float divisor;
                 do {
