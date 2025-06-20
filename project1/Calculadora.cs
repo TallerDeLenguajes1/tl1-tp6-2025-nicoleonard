@@ -23,10 +23,19 @@ public static class Calculadora
         return a / b;
     }
 
-    public static float pedirNumero()
+    public static float PedirNumero()
     {
+        bool resultadoParse;
+        float numero;
+        do
+        {
+            resultadoParse = float.TryParse(Console.ReadLine(), out numero);
 
-        float.TryParse(Console.ReadLine(), out float numero);
+        } while (!resultadoParse);
         return numero;
+    }
+    public static void MostrarResultado(float resultado)
+    {
+        Console.WriteLine($"El resultado de la operacion es : {resultado}");
     }
 }
