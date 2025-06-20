@@ -21,9 +21,11 @@ public static class Calculadora
     {
         bool resultadoParse;
         float numero;
+        string dato;
         do
         {
-            resultadoParse = float.TryParse(Console.ReadLine(), out numero);
+            dato = Console.ReadLine();
+            resultadoParse = float.TryParse(dato, out numero);
 
         } while (!resultadoParse);
         return numero;

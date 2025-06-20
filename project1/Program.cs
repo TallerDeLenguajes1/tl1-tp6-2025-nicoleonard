@@ -54,7 +54,7 @@ do {
                 float divisor;
                 do {
                     divisor = Calculadora.PedirNumero();
-                    if (!((int)divisor == 0))
+                    if (!(divisor == 0))
                     {
                         Calculadora.MostrarResultado(Calculadora.Division(dividendo, divisor));
                     }
@@ -62,7 +62,7 @@ do {
                     {
                         Console.WriteLine("El divisor debe ser distinto de 0, ingrese el numero nuevamente");
                     }
-                } while ((int)divisor == 0);
+                } while (divisor == 0);
                 break;
             case 5:
                 Console.WriteLine("adios");
