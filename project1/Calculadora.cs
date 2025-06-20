@@ -1,9 +1,3 @@
-//codigo de prueba
-/// /// /// /// ///
-//Ejercicio 1
-
-//ejercicio 2 (al ejercicio 5 hacerlo en un proyecto separado)
-
 public static class Calculadora
 {
     public static float Suma(float a, float b)
