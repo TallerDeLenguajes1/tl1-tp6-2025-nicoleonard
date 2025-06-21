@@ -22,6 +22,8 @@ else
 }
 
 //ejercicio 2 y ejercicio 3
+Console.WriteLine("Ejercicio 2 y 3");
+
 int opcion=0;
 do
 {
@@ -115,7 +117,7 @@ do
         }
     }
 
-    if (opcion != 5)
+    if (opcion != 0)
     {
         Console.WriteLine("Quiere realizar otra operacion?");
         Console.WriteLine("1. SI");
@@ -125,3 +127,53 @@ do
     }
     
 } while (opcion != 0);
+
+Console.WriteLine("Ejercicio 4");
+Console.Write("Ingrese una cadena de caracteres: ");
+string cadena = Console.ReadLine();
+Console.WriteLine($"Longitud de la cadena: {cadena.Length}");
+Console.Write("Ingrese otra cadena de caracteres para concatenar: ");
+string otraCadena = Console.ReadLine();
+otraCadena = string.Concat(cadena, otraCadena);
+Console.WriteLine($"Cadena concatenada: {otraCadena}");
+Console.WriteLine($"Subcadena: {cadena.Substring(cadena.Length / 2)}");
+float num1 = 4;
+float num2 = 12;
+string resultado = Calculadora.Suma(num1, num2).ToString();
+Console.WriteLine($"La suma de {num1} y {num2} es: {resultado}");
+foreach (var caracter in cadena)
+{
+    Console.Write(caracter);
+    Console.Write(" ");
+}
+Console.WriteLine();
+Console.WriteLine("Ingrese una cadena para buscar en la cadena inicial.");
+string busca = Console.ReadLine();
+Console.WriteLine(cadena.Contains(busca));
+Console.WriteLine(cadena.ToUpper());
+Console.WriteLine(cadena.ToLower());
+string cadenaParaSeparar = "chorizos,morcillas,costillas,vacio,tapa de asado,matambre de cerdo";
+string[] cadenaSeparada = cadenaParaSeparar.Split(",");
+foreach (var subcadena in cadenaSeparada)
+{
+    Console.WriteLine(subcadena);
+}
+bool otraotra = false;
+do
+{
+    Console.WriteLine("Ingrese una ecuacion simple. Por ejemplo 582+2");
+    string ecuacion = Console.ReadLine();
+    Calculadora.CalcularEcuacionSimple(ecuacion);
+    Console.WriteLine("Quiere ingresar otra ecuacion?");
+    Console.WriteLine("1. Si");
+    Console.WriteLine("0. No");
+    if (Console.ReadLine() == "1")
+    {
+        otraotra = true;
+    }
+    else
+    {
+        otraotra = false;
+    }
+
+} while (otraotra);

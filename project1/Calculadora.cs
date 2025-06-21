@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 public static class Calculadora
 {
     public static void MostrarResultado(float resultado)
@@ -17,7 +18,7 @@ public static class Calculadora
         } while (!resultadoParse);
         return numeroIngresado;
     }
-//Calculadora V1
+    //Calculadora V1
     public static float Suma(float a, float b)
     {
         return a + b;
@@ -34,7 +35,7 @@ public static class Calculadora
     {
         return a / b;
     }
-//Calculadora V2
+    //Calculadora V2
     public static void ValorAbsoluto(float numero)
     {
         MostrarResultado(float.Abs(numero));
@@ -66,5 +67,55 @@ public static class Calculadora
     public static void Minimo(float numero1, float numero2)
     {
         MostrarResultado(float.Min(numero1, numero2));
+    }
+    public static void CalcularEcuacionSimple(string ecuacion)
+    {
+        Match match = Regex.Match(ecuacion, @"^(\d+)\s*([-+*\/])\s*(\d+)$");
+        if (match.Success)
+        {
+            string operador = match.Groups[2].Value;
+            string numero1 = match.Groups[1].Value;
+            string numero2 = match.Groups[3].Value;
+            float fnumero1;
+            float fnumero2;
+            bool resultado1=float.TryParse(numero1, out fnumero1);
+            bool resultado2=float.TryParse(numero2, out fnumero2);
+            Console.WriteLine(fnumero1);
+            Console.WriteLine(fnumero2);
+            if (resultado1 && resultado2)
+            {
+                switch (operador)
+                {
+                    case "+":
+                        MostrarResultado(Suma(fnumero1, fnumero2));
+                        break;
+                    case "-":
+                        MostrarResultado(Resta(fnumero1, fnumero2));
+                        break;
+                    case "*":
+                        MostrarResultado(Multiplicacion(fnumero1, fnumero2));
+                        break;
+                    case "/":
+                        bool divisionValida = float.IsNaN(0/fnumero2);
+                        if (!divisionValida)
+                        {
+                            MostrarResultado(Division(fnumero1, fnumero2));
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se puede realizar la division de los numeros ingresados");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("caracter de operacion invalido");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("La expresion no era valida");
+            }
+
+        }
     }
 }
